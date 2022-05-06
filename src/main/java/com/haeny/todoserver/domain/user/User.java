@@ -31,7 +31,7 @@ public class User extends BaseTimeEntity {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    private List<TaskGroup> groups = new ArrayList<>();
+    private List<TaskGroup> taskGroups = new ArrayList<>();
 
     @Builder
     public User(String name, String email, String password) {

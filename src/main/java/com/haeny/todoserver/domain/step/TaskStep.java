@@ -12,11 +12,11 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Step extends BaseTimeEntity {
+public class TaskStep extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "step_id")
+    @Column(name = "task_step_id")
     private Long id;
 
     @Column(nullable = false)
@@ -27,19 +27,19 @@ public class Step extends BaseTimeEntity {
     private Task task;
 
     @Enumerated(EnumType.STRING)
-    private StepStatus status;
+    private TaskStepStatus status;
 
     /* 연관관계 메서드 */
-    private void addStepToTask(Task task) {
+    private void addTaskStepToTask(Task task) {
         this.task = task;
         task.getSteps().add(this);
     }
 
     /* 생성 메서드 */
     @Builder
-    public Step(String content, Task task, StepStatus status) {
+    public TaskStep(String content, Task task, TaskStepStatus status) {
         this.content = content;
         this.status = status;
-        addStepToTask(task);
+        addTaskStepToTask(task);
     }
 }

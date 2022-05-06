@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-class GroupTest {
+class TaskGroupTest {
 
     @Test
     void 그룹_생성시_유저에도_추가() {

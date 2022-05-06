@@ -33,15 +33,15 @@ public class TaskGroup extends BaseTimeEntity {
     private List<TaskList> taskLists = new ArrayList<>();
 
     /* 연관관계 메서드 */
-    private void addGroupsToUser(User user) {
+    private void addTaskGroupToUser(User user) {
         this.user = user;
-        user.getGroups().add(this);
+        user.getTaskGroups().add(this);
     }
 
     /* 생성 메서드 */
     @Builder
     public TaskGroup(String name, User user) {
         this.name = name;
-        addGroupsToUser(user);
+        addTaskGroupToUser(user);
     }
 }

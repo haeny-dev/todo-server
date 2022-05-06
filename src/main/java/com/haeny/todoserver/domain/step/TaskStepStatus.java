@@ -1,5 +1,5 @@
 package com.haeny.todoserver.domain.step;
 
-public enum StepStatus {
+public enum TaskStepStatus {
     PRECEEDING, COMPLETE
 }

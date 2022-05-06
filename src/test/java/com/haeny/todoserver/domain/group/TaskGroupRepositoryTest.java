@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.*;
 class TaskGroupRepositoryTest {
 
     @Autowired
-    GroupsRepository groupsRepository;
+    TaskGroupRepository groupsRepository;
 
     @Test
     void 그룹생성_조회하기() {

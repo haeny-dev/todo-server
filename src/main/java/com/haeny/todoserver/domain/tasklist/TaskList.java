@@ -19,21 +19,21 @@ public class TaskList extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "taskList_id")
+    @Column(name = "task_list_id")
     private Long id;
 
     @Column(nullable = false)
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "group_id")
+    @JoinColumn(name = "task_group_id")
     private TaskGroup taskGroup;
 
     @OneToMany(mappedBy = "taskList")
     private List<Task> tasks = new ArrayList<>();
 
     /* 연관관계 메서드 */
-    private void addTaskListToGroup(TaskGroup taskGroup) {
+    private void addTaskListToTaskGroup(TaskGroup taskGroup) {
         this.taskGroup = taskGroup;
         taskGroup.getTaskLists().add(this);
     }
@@ -42,6 +42,6 @@ public class TaskList extends BaseTimeEntity {
     @Builder
     public TaskList(String name, TaskGroup taskGroup) {
         this.name = name;
-        addTaskListToGroup(taskGroup);
+        addTaskListToTaskGroup(taskGroup);
     }
 }

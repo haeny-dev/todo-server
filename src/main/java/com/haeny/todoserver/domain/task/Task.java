@@ -1,7 +1,7 @@
 package com.haeny.todoserver.domain.task;
 
 import com.haeny.todoserver.domain.BaseTimeEntity;
-import com.haeny.todoserver.domain.step.Step;
+import com.haeny.todoserver.domain.step.TaskStep;
 import com.haeny.todoserver.domain.tasklist.TaskList;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -26,11 +26,11 @@ public class Task extends BaseTimeEntity {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "taskList_id")
+    @JoinColumn(name = "task_list_id")
     private TaskList taskList;
 
     @OneToMany(mappedBy = "task")
-    private List<Step> steps = new ArrayList<>();
+    private List<TaskStep> steps = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
